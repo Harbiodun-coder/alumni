@@ -82,7 +82,7 @@ export default function SignIn() {
           <br />
           <h1 className="text-2xl font-semibold mb-2">Sign in</h1>
           <p className="mb-4">
-            Don't have an account?{" "}
+          Don&#39;t have an account?{" "}
             <Link href="/signup" className="text-blue-500 hover:underline">
               Click here to sign up
             </Link>
