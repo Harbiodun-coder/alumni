@@ -229,7 +229,7 @@ export default function StoryFeed() {
 
         <div class="card-body">
           <p class="text-lg  text-gray-700 p-4">
-            I'm thrilled to share that I've completed a graduate certificate
+            I&#39;m thrilled to share that I've completed a graduate certificate
             course in project management with the president's honor roll.
           </p>
 

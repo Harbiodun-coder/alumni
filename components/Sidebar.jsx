@@ -16,7 +16,7 @@ const Sidebar = () => {
         <h2 className="text-xl font-bold mt-2">Jim Samuel</h2>
         <p className="text-sm text-gray-600">Web Developer at LASU</p>
         <p className="text-gray-500 mt-2">
-          I&#39;d love to change the world, but they won't give me the source code.
+          I&#39;d love to change the world, but they won&#39;t give me the source code.
         </p>
       </div>
 
