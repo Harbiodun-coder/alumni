@@ -475,7 +475,7 @@ export default function StoryFeed() {
 
         <div class="card-body">
           <p class="text-lg  text-gray-700 p-4">
-          I'm so privileged to be involved in the <a href="#!">@purejim </a>internship program! Interviewing with their team was fun and I hope this can be a valuable resource for folks! <a href="#!"> #frontendintern</a> <a href="#!"> #internship</a>  <a href="#"> #apply </a>
+          I&#39;m so privileged to be involved in the <a href="#!">@purejim </a>internship program! Interviewing with their team was fun and I hope this can be a valuable resource for folks! <a href="#!"> #frontendintern</a> <a href="#!"> #internship</a>  <a href="#"> #apply </a>
           </p>
 
           <img
@@ -537,7 +537,7 @@ export default function StoryFeed() {
                   </li>
                   <li>
                     <a className="block px-4 py-2 hover:bg-gray-100" href="#">
-                      <i className="bi bi-share fa-fw pr-2"></i>Share post via …
+                      <i className="bi bi-share fa-fw pr-2"></i>Share post via 
                     </a>
                   </li>
                   <li>
