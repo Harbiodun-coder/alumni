@@ -12,7 +12,7 @@ const Header = () => {
   const [isPagesOpen, setIsPagesOpen] = useState(false);
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
-  const [profile, setProfile] = useState(null); // Define profile state
+  const [profile, setProfile] = useState(null); 
   const [error, setError] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -189,7 +189,7 @@ const Header = () => {
                       </div>
                     </div>
                   </div>
-                  <a className="block text-center text-sm bg-blue-100 text-blue-600 rounded px-2 py-2 hover:bg-blue-200" href="my-profile.html">View profile</a>
+                  <Link className="block text-center text-sm bg-blue-100 text-blue-600 rounded px-2 py-2 hover:bg-blue-200" href="profile">View profile</Link>
                   <div className="border-t border-gray-200"></div>
                   <ul>
                     <li>
