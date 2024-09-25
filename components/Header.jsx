@@ -185,14 +185,7 @@ const Header = () => {
                                 Profile
                               </Link>
                             </li>
-                            <li>
-                              <Link
-                                href="/groups"
-                                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                              >
-                                Groups
-                              </Link>
-                            </li>
+                          
                             <li>
                               <Link
                                 href="/blog"
@@ -207,7 +200,7 @@ const Header = () => {
                     </li>
                     <li>
                       <Link
-                        href="/network"
+                        href="/profile"
                         className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                       >
                         My Network

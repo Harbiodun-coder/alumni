@@ -1,184 +1,634 @@
-// components/StoryFeed.js
+import React from "react";
+import { GoPlusCircle } from "react-icons/go";
+import Image from "next/image";
+import { BsThreeDots } from "react-icons/bs";
+import { useState } from "react";
+import { AiFillLike } from "react-icons/ai";
+import { IoChatbubbleSharp } from "react-icons/io5";
+import { FaShare } from "react-icons/fa";
+import { LiaBookmarkSolid } from "react-icons/lia";
+import { RiUserUnfollowLine } from "react-icons/ri";
+import { MdHideSource } from "react-icons/md";
+import { TbLockOff } from "react-icons/tb";
+import { CiFlag1 } from "react-icons/ci";
 
-import Image from 'next/image'; // Import Image for optimized image loading
-import { FaPlus } from 'react-icons/fa'; // Import specific icons as needed
+export default function StoryFeed() {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [dropdownOpen2, setDropdownOpen2] = useState(false);
+  const [shareDropdownOpen, setShareDropdownOpen] = useState(false);
+  const [shareDropdownOpen2, setShareDropdownOpen2] = useState(false);
 
-const StoryFeed = () => {
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+  const toggleDropdown2 = () => {
+    setDropdownOpen2(!dropdownOpen2);
+  };
+
+  const toggleShareDropdown = () => {
+    setShareDropdownOpen(!shareDropdownOpen);
+  };
+  const toggleShareDropdown2 = () => {
+    setShareDropdownOpen2(!shareDropdownOpen2);
+  };
   return (
-    <div className="col-md-8 col-lg-6 vstack gap-4">
+    <div>
+      {/* story field */}
+      <div className="flex ">
+        <div className="border-2 p-10 border-dotted text-center items-center flex flex-col justify-center bg-white">
+          <GoPlusCircle className="w-10 h-10 font-bold text-sm" />
+          <span className="text-gray-500 text-sm mt-2">Post a story</span>
+        </div>
+        <div className="ml-4">StoryFeed</div>
+      </div>
 
-      {/* Story START */}
-      <div className="flex gap-2 mb-n3">
-        <div className="relative">
-          <div className="card border border-2 border-dashed h-150px px-4 px-sm-5 shadow-none flex items-center justify-center text-center">
-            <div>
-              <a className="stretched-link btn btn-light rounded-full icon-md" href="#!">
-                <FaPlus />
+      {/* share your thought */}
+      <div className="pt-4">
+        <div class="card card-body p-4 shadow-md rounded-lg bg-white h-[200px]">
+          <div class="flex items-start mb-3">
+            <div class="mr-2">
+              <Image
+                src="/05.jpg"
+                alt="User Avatar"
+                width={50}
+                height={100}
+                className="rounded-full"
+              />
+            </div>
+
+            <form class="w-full">
+              <textarea
+                class="w-full p-3  rounded-md border-none resize-none focus:outline-none focus:ring-0"
+                rows="2"
+                placeholder="Share your thoughts..."
+              ></textarea>
+            </form>
+          </div>
+
+          <ul class="flex space-x-2 text-sm font-normal pt-10">
+            <li>
+              <a
+                href="#!"
+                class="flex items-center bg-gray-100 gap-2 py-1 px-3 rounded-md"
+                data-bs-toggle="modal"
+                data-bs-target="#feedActionPhoto"
+              >
+                <Image
+                  src="/pic.jpg"
+                  alt="User Avatar"
+                  width={20}
+                  height={10}
+                  className="rounded-full"
+                />
+                Photo
               </a>
-              <h6 className="mt-2 mb-0 text-sm">Post a Story</h6>
+            </li>
+            <li>
+              <a
+                href="#!"
+                class="flex items-center bg-gray-100 py-1 px-3 rounded-md"
+                data-bs-toggle="modal"
+                data-bs-target="#feedActionVideo"
+              >
+                <Image
+                  src="/video.jpg"
+                  alt="User Avatar"
+                  width={20}
+                  height={10}
+                  className="rounded-full"
+                />
+                Video
+              </a>
+            </li>
+            <li>
+              <a
+                href=""
+                class="flex items-center bg-gray-100 py-1 px-3 rounded-md"
+                data-bs-toggle="modal"
+                data-bs-target="#modalCreateEvents"
+              >
+                <Image
+                  src="/calender.jpg"
+                  alt="User Avatar"
+                  width={20}
+                  height={10}
+                  className="rounded-full"
+                />
+                Event
+              </a>
+            </li>
+            <li>
+              <a
+                href="#!"
+                class="flex items-center bg-gray-100 py-1 px-3 rounded-md"
+                data-bs-toggle="modal"
+                data-bs-target="#modalCreateFeed"
+              >
+                <Image
+                  src="/smiley.png"
+                  alt="User Avatar"
+                  width={20}
+                  height={10}
+                  className="rounded-full"
+                />
+                Feeling / Activity
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* story part */}
+
+      <div class="card bg-white shadow rounded-lg mt-5 p-2">
+        <div class="card-header  pb-0">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center p-4">
+              <div class="avatar avatar-story mr-2">
+                <Image
+                  src="/05.jpg"
+                  alt="User Avatar"
+                  width={50}
+                  height={50}
+                  className="rounded-full border-3 border-blue-500"
+                />
+              </div>
+
+              <div>
+                <div class="flex space-x-2">
+                  <h6 class="text-base font-semibold">
+                    <span>Bonu Samuel</span>
+                  </h6>
+                  <span class="text-xs text-gray-500">2hr</span>
+                </div>
+                <p class="text-sm text-gray-500 font-semibold">
+                  Systems Engineer at LASU
+                </p>
+              </div>
+            </div>
+
+            <div className="relative">
+              <button
+                className="text-gray-500 hover:bg-gray-200 font-bold rounded-full p-4 text-md"
+                onClick={toggleDropdown}
+              >
+                <BsThreeDots className="text-md font-bold" />
+              </button>
+
+              {/* Dropdown menu */}
+              {dropdownOpen && (
+                <ul className="dropdown-menu absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
+                  <li>
+                    <a
+                      className="px-4 py-2 hover:bg-gray-100 flex items-center gap-2"
+                      href="#"
+                    >
+                      <LiaBookmarkSolid className="h-5 w-5" /> Save post
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className=" px-4 py-2 hover:bg-gray-100 flex items-center gap-2"
+                      href="#"
+                    >
+                      <RiUserUnfollowLine className="w-5 h-5" /> Unfollow
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="flex px-4 py-2 hover:bg-gray-100  items-center gap-2"
+                      href="#"
+                    >
+                      <MdHideSource className="w-5 h-5" /> Hide post
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="flex px-4 py-2 hover:bg-gray-100  items-center gap-2"
+                      href="#"
+                    >
+                      <TbLockOff className="w-5 h-5" /> Block
+                    </a>
+                  </li>
+                  <li>
+                    <hr className="border-t" />
+                  </li>
+                  <li>
+                    <a
+                      className="flex px-4 py-2 hover:bg-gray-100  items-center gap-2"
+                      href="#"
+                    >
+                      <CiFlag1 className="w-5 h-5" /> Report post
+                    </a>
+                  </li>
+                </ul>
+              )}
             </div>
           </div>
         </div>
 
-        {/* Stories */}
-        <div id="stories" className="storiesWrapper stories-square stories user-icon carousel scroll-enable"></div>
-      </div>
-      {/* Story END */}
+        <div class="card-body">
+          <p class="text-lg  text-gray-700 p-4">
+            I'm thrilled to share that I've completed a graduate certificate
+            course in project management with the president's honor roll.
+          </p>
 
-      {/* Share feed START */}
-      <div className="card card-body">
-        <div className="flex mb-3">
-          {/* Avatar */}
-          <div className="avatar avatar-xs me-2">
-            <a href="#">
-              <Image className="avatar-img rounded-full" src="/assets/images/avatar/03.jpg" alt="" width={40} height={40} />
-            </a>
+          <img
+            class="w-full h-auto mt-3 rounded-lg"
+            src="01.jpg"
+            alt="Post"
+          ></img>
+
+          <ul class="flex items-center justify-between  py-3 text-xs">
+            <div className="flex gap-2 ml-2">
+              <li class="flex items-center">
+                <a
+                  class="text-blue-500 hover:underline flex"
+                  href="#!"
+                  data-bs-toggle="tooltip"
+                  title="Frances Guerrero<br>Lori Stevens"
+                >
+                  <AiFillLike />
+                  Liked (56)
+                </a>
+              </li>
+              <li class="flex items-center">
+                <a class="text-gray-500 hover:text-blue-500 flex" href="#!">
+                  <IoChatbubbleSharp className="text-blue-500" />
+                  Comments (12)
+                </a>
+              </li>
+            </div>
+
+            <li className="relative">
+              <div
+                className="text-gray-500 hover:text-blue-500 flex gap-1 cursor-pointer"
+                href=""
+                id="cardShareAction"
+                onClick={toggleShareDropdown}
+              >
+                <FaShare className="text-blue-500" />
+                Share (3)
+              </div>
+
+              {shareDropdownOpen && (
+                <ul className="dropdown-menu absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
+                  <li>
+                    <div className="block px-4 py-2 hover:bg-gray-100">
+                      <i className="bi bi-envelope fa-fw pr-2"></i>Send via
+                      Direct Message
+                    </div>
+                  </li>
+                  <li>
+                    <div className="block px-4 py-2 hover:bg-gray-100">
+                      <i className="bi bi-bookmark-check fa-fw pr-2"></i>
+                      Bookmark
+                    </div>
+                  </li>
+                  <li>
+                    <a className="block px-4 py-2 hover:bg-gray-100" href="#">
+                      <i className="bi bi-link fa-fw pr-2"></i>Copy link to post
+                    </a>
+                  </li>
+                  <li>
+                    <a className="block px-4 py-2 hover:bg-gray-100" href="#">
+                      <i className="bi bi-share fa-fw pr-2"></i>Share post via …
+                    </a>
+                  </li>
+                  <li>
+                    <hr className="border-t" />
+                  </li>
+                  <li>
+                    <a className="block px-4 py-2 hover:bg-gray-100" href="#">
+                      <i className="bi bi-pencil-square fa-fw pr-2"></i>Share to
+                      News Feed
+                    </a>
+                  </li>
+                </ul>
+              )}
+            </li>
+          </ul>
+
+          <div class="flex mb-3">
+            <div class="mr-2">
+              <a href="#!">
+                <img class="w-8 h-8 rounded-full" src="/10.jpg" alt=""></img>
+              </a>
+            </div>
+
+            <form class="relative flex-grow">
+              <textarea
+                class="form-control bg-gray-100 p-2 rounded-md resize-none focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                rows="1"
+                placeholder="Add a comment..."
+              ></textarea>
+              <button
+                class="absolute top-1/2 right-3 transform -translate-y-1/2 bg-transparent text-blue-500"
+                type="submit"
+              >
+                <i class="bi bi-send-fill"></i>
+              </button>
+            </form>
           </div>
-          {/* Post input */}
-          <form className="w-full">
-            <textarea className="form-control pe-4 border-0" rows="2" placeholder="Share your thoughts..."></textarea>
-          </form>
-        </div>
-        {/* Share feed toolbar START */}
-        <ul className="nav nav-pills nav-stack text-sm font-normal">
-          <li className="nav-item">
-            <a className="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal" data-bs-target="#feedActionPhoto">
-              <i className="bi bi-image-fill text-success pe-2"></i> Photo
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal" data-bs-target="#feedActionVideo">
-              <i className="bi bi-camera-reels-fill text-info pe-2"></i> Video
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link bg-light py-1 px-2 mb-0" data-bs-toggle="modal" data-bs-target="#modalCreateEvents">
-              <i className="bi bi-calendar2-event-fill text-danger pe-2"></i> Event
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal" data-bs-target="#modalCreateFeed">
-              <i className="bi bi-emoji-smile-fill text-warning pe-2"></i> Feeling / Activity
-            </a>
-          </li>
-          <li className="nav-item dropdown ms-lg-auto">
-            <a className="nav-link bg-light py-1 px-2 mb-0" href="#" id="feedActionShare" data-bs-toggle="dropdown" aria-expanded="false">
-              <i className="bi bi-three-dots"></i>
-            </a>
-            {/* Dropdown menu */}
-            <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="feedActionShare">
-              <li><a className="dropdown-item" href="#"> <i className="bi bi-envelope fa-fw pe-2"></i> Create a poll</a></li>
-              <li><a className="dropdown-item" href="#"> <i className="bi bi-bookmark-check fa-fw pe-2"></i> Ask a question </a></li>
-              <li><hr className="dropdown-divider" /></li>
-              <li><a className="dropdown-item" href="#"> <i className="bi bi-pencil-square fa-fw pe-2"></i> Help</a></li>
-            </ul>
-          </li>
-        </ul>
-        {/* Share feed toolbar END */}
-      </div>
-      {/* Share feed END */}
 
-      {/* Card feed item START */}
-      <div className="card">
-        {/* Card header START */}
-        <div className="card-header border-0 pb-0">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              {/* Avatar */}
-              <div className="avatar avatar-story me-2">
-                <a href="#">
-                  <Image className="avatar-img rounded-full" src="/assets/images/avatar/04.jpg" alt="" width={40} height={40} />
+          <ul class="space-y-4">
+            <li class="flex">
+              <div class="w-8 h-8">
+                <a href="#!">
+                  <img
+                    class="w-full h-full rounded-full"
+                    src="/07.jpg"
+                    alt=""
+                  ></img>
                 </a>
               </div>
-              {/* Info */}
-              <div>
-                <div className="nav nav-divider">
-                  <h6 className="nav-item card-title mb-0">
-                    <a href="#">Bonu Samuel</a>
+
+              <div class="ml-3 bg-gray-100 p-3 rounded-lg flex-grow">
+                <div class="flex justify-between">
+                  <h6 class="font-semibold">
+                    <a href="">Sanni Motunrayo</a>
                   </h6>
-                  <span className="nav-item text-sm">2hr</span>
+                  <small class="text-xs text-gray-500">5hr</small>
                 </div>
-                <p className="mb-0 text-sm">Web Developer at LASU</p>
+                <p class="text-sm text-gray-700">
+                  Congratulations bro keep soaring higher.
+                </p>
               </div>
-            </div>
-            {/* Card feed action dropdown START */}
-            <div className="dropdown">
-              <a href="#" className="text-secondary btn btn-secondary-soft-hover py-1 px-2" id="cardFeedAction" data-bs-toggle="dropdown" aria-expanded="false">
-                <i className="bi bi-three-dots"></i>
-              </a>
-              {/* Card feed action dropdown menu */}
-              <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="cardFeedAction">
-                <li><a className="dropdown-item" href="#"> <i className="bi bi-bookmark fa-fw pe-2"></i> Save post</a></li>
-                <li><a className="dropdown-item" href="#"> <i className="bi bi-person-x fa-fw pe-2"></i> Unfollow Bonu Samuel</a></li>
-                <li><a className="dropdown-item" href="#"> <i className="bi bi-x-circle fa-fw pe-2"></i> Hide post</a></li>
-                <li><a className="dropdown-item" href="#"> <i className="bi bi-slash-circle fa-fw pe-2"></i> Block</a></li>
-                <li><hr className="dropdown-divider" /></li>
-                <li><a className="dropdown-item" href="#"> <i className="bi bi-flag fa-fw pe-2"></i> Report post</a></li>
-              </ul>
-            </div>
-            {/* Card feed action dropdown END */}
-          </div>
-        </div>
-        {/* Card header END */}
-        {/* Card body START */}
-        <div className="card-body">
-          <p>I'm thrilled to share that I've completed a graduate certificate course in project management with the president's honor roll.</p>
-          {/* Card img */}
-          <Image className="card-img" src="/assets/images/post/3by2/01.jpg" alt="Post" width={600} height={400} />
-          {/* Feed react START */}
-          <ul className="nav nav-stack py-3 text-sm">
-            <li className="nav-item">
-              <a className="nav-link active" href="#!" data-bs-container="body" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-custom-class="tooltip-text-start" data-bs-title="Frances Guerrero<br> Lori Stevens<br> Billy Vasquez<br> Judy Nguyen<br> Larry Lawson<br> Amanda Reed<br> Louis Crawford">
-                <i className="bi bi-hand-thumbs-up-fill pe-1"></i>Liked (56)
-              </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#!"><i className="bi bi-chat-fill pe-1"></i>Comments (12)</a>
-            </li>
-            {/* Card share action START */}
-            <li className="nav-item dropdown ms-sm-auto">
-              <a className="nav-link mb-0" href="#" id="cardShareAction" data-bs-toggle="dropdown" aria-expanded="false">
-                <i className="bi bi-reply-fill flip-horizontal ps-1"></i>Share (3)
-              </a>
-              {/* Card share action dropdown menu */}
-              <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="cardShareAction">
-                <li><a className="dropdown-item" href="#"> <i className="bi bi-envelope fa-fw pe-2"></i> Send via Direct Message</a></li>
-                <li><a className="dropdown-item" href="#"> <i className="bi bi-bookmark-check fa-fw pe-2"></i> Add to collection</a></li>
-              </ul>
-            </li>
-            {/* Card share action END */}
+
+            <ul class="pl-10 space-y-3">
+              <li class="flex">
+                <div class="w-8 h-8">
+                  <a href="#!">
+                    <img
+                      class="w-full h-full rounded-full"
+                      src="/02.jpg"
+                      alt=""
+                    ></img>
+                  </a>
+                </div>
+
+                <div class="ml-3 bg-gray-100 p-3 rounded-lg flex-grow">
+                  <div class="flex justify-between">
+                    <h6 class="font-semibold">
+                      <a href="">Akinwande Aaron</a>
+                    </h6>
+                    <small class="text-xs text-gray-500">2hr</small>
+                  </div>
+                  <p class="text-sm text-gray-700">
+                    Congratulations more grace to your elbow.
+                  </p>
+                </div>
+              </li>
+            </ul>
           </ul>
-          {/* Feed react END */}
-          {/* Comment Input START */}
-          <form className="mt-4">
-            <div className="input-group">
-              <input type="text" className="form-control" placeholder="Add a comment..." />
-              <button className="btn btn-primary" type="submit">Post</button>
-            </div>
-          </form>
-          {/* Comment Input END */}
-          {/* Comment List START */}
-          <div className="comment-list mt-3">
-            <div className="comment">
-              <div className="d-flex align-items-start mb-3">
-                <div className="avatar avatar-xs me-2">
-                  <Image className="avatar-img rounded-full" src="/assets/images/avatar/02.jpg" alt="" width={30} height={30} />
+        </div>
+      </div>
+
+      {/* post story 2 */}
+      <div class="card bg-white shadow rounded-lg mt-5 p-2">
+        <div class="card-header  pb-0">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center p-4">
+              <div class="avatar avatar-story mr-2">
+                <Image
+                  src="/13.jpg"
+                  alt="User Avatar"
+                  width={50}
+                  height={50}
+                  className="rounded-full border-3 border-blue-500"
+                />
+              </div>
+
+              <div>
+                <div class="flex space-x-2">
+                  <h6 class="text-base font-semibold">
+                    <span>Francis Matthew</span>
+                  </h6>
+                  <span class="text-xs text-gray-500">2hr</span>
                 </div>
-                <div className="comment-body">
-                  <p><strong>Jane Doe</strong>: This is fantastic news! Congratulations!</p>
-                  <small className="text-muted">1hr ago</small>
-                </div>
+                <p class="text-sm text-gray-500 font-semibold">
+                  Web Developer at LASU
+                </p>
               </div>
             </div>
-            {/* More comments can be added here */}
+
+            <div className="relative">
+              <button
+                className="text-gray-500 hover:bg-gray-200 font-bold rounded-full p-4 text-md"
+                onClick={toggleDropdown2}
+              >
+                <BsThreeDots className="text-md font-bold" />
+              </button>
+
+              {/* Dropdown menu */}
+              {dropdownOpen2 && (
+                <ul className="dropdown-menu absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
+                  <li>
+                    <a
+                      className="px-4 py-2 hover:bg-gray-100 flex items-center gap-2"
+                      href="#"
+                    >
+                      <LiaBookmarkSolid className="h-5 w-5" /> Save post
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className=" px-4 py-2 hover:bg-gray-100 flex items-center gap-2"
+                      href="#"
+                    >
+                      <RiUserUnfollowLine className="w-5 h-5" /> Unfollow
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="flex px-4 py-2 hover:bg-gray-100  items-center gap-2"
+                      href="#"
+                    >
+                      <MdHideSource className="w-5 h-5" /> Hide post
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="flex px-4 py-2 hover:bg-gray-100  items-center gap-2"
+                      href="#"
+                    >
+                      <TbLockOff className="w-5 h-5" /> Block
+                    </a>
+                  </li>
+                  <li>
+                    <hr className="border-t" />
+                  </li>
+                  <li>
+                    <a
+                      className="flex px-4 py-2 hover:bg-gray-100  items-center gap-2"
+                      href="#"
+                    >
+                      <CiFlag1 className="w-5 h-5" /> Report post
+                    </a>
+                  </li>
+                </ul>
+              )}
+            </div>
           </div>
-          {/* Comment List END */}
         </div>
-        {/* Card body END */}
+
+        <div class="card-body">
+          <p class="text-lg  text-gray-700 p-4">
+          I'm so privileged to be involved in the <a href="#!">@purejim </a>internship program! Interviewing with their team was fun and I hope this can be a valuable resource for folks! <a href="#!"> #frontendintern</a> <a href="#!"> #internship</a>  <a href="#"> #apply </a>
+          </p>
+
+          <img
+            class="w-full h-auto mt-3 rounded-lg"
+            src="post2.jpg"
+            alt="Post"
+          ></img>
+
+          <ul class="flex items-center justify-between  py-3 text-xs">
+            <div className="flex gap-2 ml-2">
+              <li class="flex items-center">
+                <a
+                  class="text-blue-500 hover:underline flex"
+                  href="#!"
+                  data-bs-toggle="tooltip"
+                  title="Frances Guerrero<br>Lori Stevens"
+                >
+                  <AiFillLike />
+                  Liked (56)
+                </a>
+              </li>
+              <li class="flex items-center">
+                <a class="text-gray-500 hover:text-blue-500 flex" href="#!">
+                  <IoChatbubbleSharp className="text-blue-500" />
+                  Comments (12)
+                </a>
+              </li>
+            </div>
+
+            <li className="relative">
+              <div
+                className="text-gray-500 hover:text-blue-500 flex gap-1 cursor-pointer"
+                href=""
+                id="cardShareAction"
+                onClick={toggleShareDropdown2}
+              >
+                <FaShare className="text-blue-500" />
+                Share (3)
+              </div>
+
+              {shareDropdownOpen2 && (
+                <ul className="dropdown-menu absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
+                  <li>
+                    <a className="block px-4 py-2 hover:bg-gray-100" href="#">
+                      <i className="bi bi-envelope fa-fw pr-2"></i>Send via
+                      Direct Message
+                    </a>
+                  </li>
+                  <li>
+                    <a className="block px-4 py-2 hover:bg-gray-100" href="#">
+                      <i className="bi bi-bookmark-check fa-fw pr-2"></i>
+                      Bookmark
+                    </a>
+                  </li>
+                  <li>
+                    <a className="block px-4 py-2 hover:bg-gray-100" href="#">
+                      <i className="bi bi-link fa-fw pr-2"></i>Copy link to post
+                    </a>
+                  </li>
+                  <li>
+                    <a className="block px-4 py-2 hover:bg-gray-100" href="#">
+                      <i className="bi bi-share fa-fw pr-2"></i>Share post via …
+                    </a>
+                  </li>
+                  <li>
+                    <hr className="border-t" />
+                  </li>
+                  <li>
+                    <a className="block px-4 py-2 hover:bg-gray-100" href="#">
+                      <i className="bi bi-pencil-square fa-fw pr-2"></i>Share to
+                      News Feed
+                    </a>
+                  </li>
+                </ul>
+              )}
+            </li>
+          </ul>
+
+          <div class="flex mb-3">
+            <div class="mr-2">
+              <a href="#!">
+                <img class="w-8 h-8 rounded-full" src="/10.jpg" alt=""></img>
+              </a>
+            </div>
+
+            <form class="relative flex-grow">
+              <textarea
+                class="form-control bg-gray-100 p-2 rounded-md resize-none focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                rows="1"
+                placeholder="Add a comment..."
+              ></textarea>
+              <button
+                class="absolute top-1/2 right-3 transform -translate-y-1/2 bg-transparent text-blue-500"
+                type="submit"
+              >
+                <i class="bi bi-send-fill"></i>
+              </button>
+            </form>
+          </div>
+
+          <ul class="space-y-4">
+            <li class="flex">
+              <div class="w-8 h-8">
+                <a href="#!">
+                  <img
+                    class="w-full h-full rounded-full"
+                    src="/07.jpg"
+                    alt=""
+                  ></img>
+                </a>
+              </div>
+
+              <div class="ml-3 bg-gray-100 p-3 rounded-lg flex-grow">
+                <div class="flex justify-between">
+                  <h6 class="font-semibold">
+                    <a href="">Sanni Motunrayo</a>
+                  </h6>
+                  <small class="text-xs text-gray-500">5hr</small>
+                </div>
+                <p class="text-sm text-gray-700">
+                  Congratulations bro keep soaring higher.
+                </p>
+              </div>
+            </li>
+
+            <ul class="pl-10 space-y-3">
+              <li class="flex">
+                <div class="w-8 h-8">
+                  <a href="#!">
+                    <img
+                      class="w-full h-full rounded-full"
+                      src="/02.jpg"
+                      alt=""
+                    ></img>
+                  </a>
+                </div>
+
+                <div class="ml-3 bg-gray-100 p-3 rounded-lg flex-grow">
+                  <div class="flex justify-between">
+                    <h6 class="font-semibold">
+                      <a href="">Akinwande Aaron</a>
+                    </h6>
+                    <small class="text-xs text-gray-500">2hr</small>
+                  </div>
+                  <p class="text-sm text-gray-700">
+                    Congratulations more grace to your elbow.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </ul>
+        </div>
       </div>
-      {/* Card feed item END */}
     </div>
   );
-};
-
-export default StoryFeed;
+}
