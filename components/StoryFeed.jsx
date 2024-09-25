@@ -230,7 +230,7 @@ export default function StoryFeed() {
         <div class="card-body">
           <p class="text-lg  text-gray-700 p-4">
             I&#39;m thrilled to share that I&#39;ve completed a graduate certificate
-            course in project management with the president's honor roll.
+            course in project management with the president&#39;s honor roll.
           </p>
 
           <img
