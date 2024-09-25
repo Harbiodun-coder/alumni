@@ -110,7 +110,6 @@ const Header = () => {
                   <ul onMouseLeave={() => setIsPagesOpen(false)}>
                     <li><Link href="/messaging" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Messaging</Link></li>
                     <li><Link href="/profile" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Profile</Link></li>
-                    <li><Link href="/groups" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Groups</Link></li>
                     <li><Link href="/blog" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Blog</Link></li>
                   </ul>
                 </div>
