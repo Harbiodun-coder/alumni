@@ -19,7 +19,7 @@ export default function SignIn() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setLoading(true)
+    setLoading(true);
 
     const loginDetails = {
       email,
@@ -35,16 +35,13 @@ export default function SignIn() {
         body: JSON.stringify(loginDetails),
       });
 
-      console.log("Response:", response);
-
+      const data = await response.json();
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        throw new Error(data.message || "Invalid email or password");
       }
 
-      const data = await response.json();
-      const { jwt_token } = data;
-
-      localStorage.setItem("alumni", jwt_token);
+      const { jwt_token } = data.data; 
+      localStorage.setItem("alumni_jwt_token", jwt_token);
 
       Swal.fire({
         title: "Success",
@@ -53,21 +50,19 @@ export default function SignIn() {
         confirmButtonText: "OK",
       });
 
-      router.push("/home")
-      
+      router.push("/home");
     } catch (error) {
       Swal.fire({
         title: "Error",
-        text: "Invalid email or password",
+        text: error.message || "Something went wrong",
         icon: "error",
         confirmButtonText: "OK",
       });
-      
-    }
-    finally{
+    } finally {
       setLoading(false);
     }
   };
+
 
   return (
     <main
