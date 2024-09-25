@@ -3,11 +3,13 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
   
 
   const togglePasswordVisibility = () => {
@@ -48,6 +50,9 @@ export default function SignIn() {
         icon: "success",
         confirmButtonText: "OK",
       });
+
+      router.push("/home")
+      
     } catch (error) {
       Swal.fire({
         title: "Error",

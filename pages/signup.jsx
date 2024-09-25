@@ -29,12 +29,11 @@ export default function SignUp() {
     password: "",
     confirmPassword: "",
     degree: "",
-    gradYear: "",
-    currentJob: "",
-    phoneNumber: "",
-    profilePicture: null,
-    linkedinProfile: "",
-    twitterProfile: "",
+    grad_year: "",
+    current_Job: "",
+    phone: "",
+    linked_profile: "",
+    twitter_profile: "",
   });
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
@@ -290,8 +289,8 @@ export default function SignUp() {
                 <div className="mb-4">
                   <input
                     type="text"
-                    name="gradYear"
-                    value={formData.gradYear}
+                    name="grad_year"
+                    value={formData.grad_year}
                     onChange={handleChange}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
                     placeholder="Graduation Year"
@@ -301,8 +300,8 @@ export default function SignUp() {
                 <div className="mb-4">
                   <input
                     type="text"
-                    name="currentJob"
-                    value={formData.currentJob}
+                    name="current_job"
+                    value={formData.current_job}
                     onChange={handleChange}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
                     placeholder="Current Job"
@@ -331,28 +330,20 @@ export default function SignUp() {
                 <div className="mb-4">
                   <input
                     type="tel"
-                    name="phoneNumber"
-                    value={formData.phoneNumber}
+                    name="phone"
+                    value={formData.phone}
                     onChange={handleChange}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
                     placeholder="Phone Number"
                     required
                   />
                 </div>
-                <div className="mb-4">
-                  <input
-                    type="file"
-                    name="profilePicture"
-                    onChange={handleFileChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
-                    required
-                  />
-                </div>
+               
                 <div className="mb-4">
                   <input
                     type="text"
-                    name="linkedinProfile"
-                    value={formData.linkedinProfile}
+                    name="linked_profile"
+                    value={formData.linked_profile}
                     onChange={handleChange}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
                     placeholder="LinkedIn Profile"
@@ -362,8 +353,8 @@ export default function SignUp() {
                 <div className="mb-4">
                   <input
                     type="text"
-                    name="twitterProfile"
-                    value={formData.twitterProfile}
+                    name="twitter_profile"
+                    value={formData.twitter_profile}
                     onChange={handleChange}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
                     placeholder="Twitter Profile"
