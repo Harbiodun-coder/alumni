@@ -229,7 +229,7 @@ export default function StoryFeed() {
 
         <div class="card-body">
           <p class="text-lg  text-gray-700 p-4">
-            I&#39;m thrilled to share that I've completed a graduate certificate
+            I&#39;m thrilled to share that I&#39;ve completed a graduate certificate
             course in project management with the president's honor roll.
           </p>
 
@@ -292,7 +292,7 @@ export default function StoryFeed() {
                   </li>
                   <li>
                     <a className="block px-4 py-2 hover:bg-gray-100" href="#">
-                      <i className="bi bi-share fa-fw pr-2"></i>Share post via …
+                      <i className="bi bi-share fa-fw pr-2"></i>Share post via 
                     </a>
                   </li>
                   <li>
