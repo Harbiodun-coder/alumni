@@ -90,7 +90,7 @@ const Sidebar = () => {
        
         <li>
           <Link
-            href="/blog"
+            href="/notifications"
             className="flex gap-3 px-4 py-2 text-gray-700 hover:bg-gray-100 font-bold"
           >
             <Image

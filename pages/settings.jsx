@@ -1,34 +1,37 @@
 import React from "react";
+import Header from "@/components/Header";
 
 const AccountSettings = () => {
   return (
-    <div className="flex">
+    <div>
+      <Header />
+    <div className="flex pt-20">
       {/* Sidebar */}
-      <aside className="bg-white p-6 shadow-lg min-h-[300px] m-4 h-10 items-center">
+      <aside className="bg-white p-6 shadow-lg min-h-[300px] m-4 h-10 items-center ">
         <nav>
           <ul>
             <li className="mb-4 flex items-center">
-              <img src="/account-icon.png" alt="Account" className="w-6 h-6 mr-3" />
+              <img src="/account.png" alt="Account" className="w-6 h-6 mr-3" />
               <a href="#" className="font-semibold text-gray-700">Account</a>
             </li>
             <li className="mb-4 flex items-center">
-              <img src="/notification-icon.png" alt="Notifications" className="w-6 h-6 mr-3" />
+              <img src="/notification.png" alt="Notifications" className="w-6 h-6 mr-3" />
               <a href="#" className="text-gray-600 hover:text-gray-800">Notifications</a>
             </li>
             <li className="mb-4 flex items-center">
-              <img src="/privacy-icon.png" alt="Privacy and Safety" className="w-6 h-6 mr-3" />
+              <img src="/privacy.png" alt="Privacy and Safety" className="w-6 h-6 mr-3" />
               <a href="#" className="text-gray-600 hover:text-gray-800">Privacy and safety</a>
             </li>
             <li className="mb-4 flex items-center">
-              <img src="/communications-icon.png" alt="Communications" className="w-6 h-6 mr-3" />
+              <img src="/connect.jpg" alt="Communications" className="w-6 h-6 mr-3" />
               <a href="#" className="text-gray-600 hover:text-gray-800">Communications</a>
             </li>
             <li className="mb-4 flex items-center">
-              <img src="/messaging-icon.png" alt="Messaging" className="w-6 h-6 mr-3" />
+              <img src="/chats.png" alt="Messaging" className="w-6 h-6 mr-3" />
               <a href="#" className="text-gray-600 hover:text-gray-800">Messaging</a>
             </li>
             <li className="mb-4 flex items-center">
-              <img src="/close-icon.png" alt="Close account" className="w-6 h-6 mr-3" />
+              <img src="/close.png" alt="Close account" className="w-6 h-6 mr-3" />
               <a href="#" className="text-gray-600 hover:text-gray-800">Close account</a>
             </li>
           </ul>
@@ -125,6 +128,7 @@ const AccountSettings = () => {
           </form>
         </section>
       </main>
+    </div>
     </div>
   );
 };
