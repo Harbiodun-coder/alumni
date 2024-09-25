@@ -1,7 +1,7 @@
 import React from "react";
 import UserProfile from "@/components/UserProfile";
 
-import ProfileSidebar from "@/components/ProfileSideBar";
+import ProfileSidebar from "@/components/ProfileSidebar";
 import ProfileTabs from "@/components/ProfileTabs";
 
 import StoryFeed from "@/components/StoryFeed";
