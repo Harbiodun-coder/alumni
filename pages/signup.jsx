@@ -52,12 +52,12 @@ export default function SignUp() {
     });
   };
 
-  const handleFileChange = (e) => {
-    setFormData({
-      ...formData,
-      profilePicture: e.target.files[0],
-    });
-  };
+  // const handleFileChange = (e) => {
+  //   setFormData({
+  //     ...formData,
+  //     profilePicture: e.target.files[0],
+  //   });
+  // };
 
   useEffect(() => {
     const strength = calculatePasswordStrength(formData.password);
