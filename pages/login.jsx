@@ -41,7 +41,7 @@ export default function SignIn() {
       }
 
       const { jwt_token } = data.data; 
-      localStorage.setItem("alumni_jwt_token", jwt_token);
+      localStorage.setItem("alumni", jwt_token);
 
       Swal.fire({
         title: "Success",
